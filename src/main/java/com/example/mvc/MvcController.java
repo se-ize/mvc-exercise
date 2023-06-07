@@ -19,4 +19,10 @@ public class MvcController {
                 new Student("SeoHyun Kim", "idshkc@gmail.com"));
         return "student";
     }
+
+    @RequestMapping("/is-logged-in")
+    public String isLoggedIn(Model model) {
+        model.addAttribute("isLoggedIn", true);
+        return "if-unless";
+    }
 }
