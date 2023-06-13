@@ -8,9 +8,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 
 @Controller
 public class MvcController {
+    private int hitCount = 0;
     @RequestMapping("/")
     public String home(Model model) {
         model.addAttribute("message", "Hello, Thymeleaf!");
@@ -47,5 +49,21 @@ public class MvcController {
         );
         model.addAttribute("studentList", studentList);
         return "each";
+    }
+
+    @RequestMapping("/hits")
+    public String hits(Model model) {
+        model.addAttribute("hits", ++hitCount);
+        return "hits";
+    }
+
+    @RequestMapping("/lotto")
+    public String lotto(Model model) {
+        List<Integer> winningNums = new ArrayList<>();
+        Random random = new Random();
+        for (int i = 0; i < 6; i++) {
+            winningNums.add(random.nextInt(1, 46));
+        }
+        return "lotto";
     }
 }
