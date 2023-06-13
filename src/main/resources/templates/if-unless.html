@@ -5,11 +5,11 @@
     <title>If Unless</title>
 </head>
 <body>
-<!--로그인 되어있을때 보여져야 하는 것-->
+    <!--로그인 되어있을때 보여져야 하는 것-->
     <div th:if="${isLoggedIn}">
         <p>You are logged in.</p>
     </div>
-<!--로그인 되어있지 않을때 보여져야 하는 것-->
+    <!--로그인 되어있지 않을때 보여져야 하는 것-->
     <div th:unless="${isLoggedIn}">
         <p>Please log in.</p>
     </div>
